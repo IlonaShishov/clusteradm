@@ -11,6 +11,8 @@ type Options struct {
 	ClusteradmFlags *genericclioptionsclusteradm.ClusteradmFlags
 	//A list of comma separated addon names
 	names string
+	//A Specified namespace to deploy built-in add-ons
+	ServerNamespace string
 	//The file to output the resources will be sent to the file.
 	outputFile string
 	values     Values

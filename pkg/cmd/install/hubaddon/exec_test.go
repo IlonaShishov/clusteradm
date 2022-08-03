@@ -32,6 +32,7 @@ var _ = ginkgo.Describe("install hub-addon", func() {
 			gomega.Expect(err).ToNot(gomega.HaveOccurred())
 
 			o := Options{
+				ServerNamespace: ocmNamespace,
 				values: Values{
 					hubAddons: []string{"no-such-addon"},
 				},
@@ -59,6 +60,7 @@ var _ = ginkgo.Describe("install hub-addon", func() {
 
 		ginkgo.It("Should deploy the built in application-manager add-on deployments in open-cluster-management namespace successfully", func() {
 			o := Options{
+				ServerNamespace: ocmNamespace,
 				values: Values{
 					hubAddons: []string{appMgrAddonName},
 				},
@@ -86,6 +88,7 @@ var _ = ginkgo.Describe("install hub-addon", func() {
 
 		ginkgo.It("Should deploy the built-in governance-policy-framework add-on deployments in open-cluster-management namespace successfully", func() {
 			o := Options{
+				ServerNamespace: ocmNamespace,
 				values: Values{
 					hubAddons: []string{policyFrameworkAddonName},
 				},

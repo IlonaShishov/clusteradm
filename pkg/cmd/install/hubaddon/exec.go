@@ -99,7 +99,7 @@ func (o *Options) runWithClient(kubeClient kubernetes.Interface,
 				"addon/appmgr/service.yaml",
 			}
 
-			out, err := applier.ApplyDirectly(reader, o.values, dryRun, "", files...)
+			out, err := applier.ApplyDirectly(reader, o, dryRun, "", files...)
 			if err != nil {
 				return err
 			}
@@ -112,7 +112,7 @@ func (o *Options) runWithClient(kubeClient kubernetes.Interface,
 				"addon/appmgr/deployment_appsubsummary.yaml",
 			}
 
-			out, err = applier.ApplyDeployments(reader, o.values, dryRun, "", deployments...)
+			out, err = applier.ApplyDeployments(reader, o, dryRun, "", deployments...)
 			if err != nil {
 				return err
 			}
@@ -140,7 +140,7 @@ func (o *Options) runWithClient(kubeClient kubernetes.Interface,
 				"addon/appmgr/crd_placementrule.yaml",
 			}
 
-			out, err := applier.ApplyDirectly(reader, o.values, dryRun, "", files...)
+			out, err := applier.ApplyDirectly(reader, o, dryRun, "", files...)
 			if err != nil {
 				return err
 			}
@@ -151,7 +151,7 @@ func (o *Options) runWithClient(kubeClient kubernetes.Interface,
 				"addon/policy/propagator_deployment.yaml",
 			}
 
-			out, err = applier.ApplyDeployments(reader, o.values, dryRun, "", deployments...)
+			out, err = applier.ApplyDeployments(reader, o, dryRun, "", deployments...)
 			if err != nil {
 				return err
 			}

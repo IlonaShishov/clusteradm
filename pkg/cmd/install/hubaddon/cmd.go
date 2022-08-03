@@ -15,6 +15,8 @@ var example = `
 # Install built-in add-ons to the hub cluster
 %[1]s install hub-addon --names application-manager
 %[1]s install hub-addon --names governance-policy-framework
+# Install built-in add-ons to the hub cluster in specified namespace 
+%[1]s install hub-addon --names x --server-namespace y
 `
 
 // NewCmd...
@@ -48,6 +50,7 @@ func NewCmd(clusteradmFlags *genericclioptionsclusteradm.ClusteradmFlags, stream
 	}
 
 	cmd.Flags().StringVar(&o.names, "names", "", "Names of the built-in add-on to install (comma separated). The built-in add-ons are: application-manager, governance-policy-framework")
+	cmd.Flags().StringVar(&o.ServerNamespace, "server-namespace", "open-cluster-management", "Specified namespace to deploy built-in add-ons")
 	cmd.Flags().StringVar(&o.outputFile, "output-file", "", "The generated resources will be copied in the specified file")
 
 	return cmd
